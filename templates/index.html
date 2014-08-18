@@ -1,7 +1,37 @@
 $def with (dic)
+<html>
+<head>
+<!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+<script src="http://localhost:8080/static/js/jquery.js"></script>
+<script>
+    console.log("inside");
+    jQuery(document).ready(function(){
+    	console.log("inside js");
+      jQuery("a#submit").click(function(){
+      	console.log("inside click fuc");
+        var answer = jQuery("#answer").val();
+        console.log(answer);
 
+        if( "$dic['title']".indexOf(answer) >= 0){
+          alert("Right! "+ "$dic['title']");
+        }
+        else{
+    	  alert("Wrong! "+ "$dic['title']");
+        }
+
+      });
+    });
+</script>
+</head>
+<body>
 $if dic:
     <img height="700px" src="$dic['link']"/></br>
-    <h3>$dic['title']</h3>
+    <input type="text" name="answer" id="answer"/>
+    <a href="#" id="submit">submit</a>
+
 $else:
     <em>Hello</em>, world!
+
+   
+    </body>
+</html>
